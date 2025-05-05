@@ -1,0 +1,94 @@
+{
+    "info": {
+      "name": "Ecommerce Store APIs",
+      "_postman_id": "a1b2c3d4-ecom-store",
+      "description": "Test collection for Ecommerce Store assignment backend",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Add item to cart",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"userId\": \"user1\",\n  \"item\": {\n    \"name\": \"T-Shirt\",\n    \"price\": 499,\n    \"quantity\": 2\n  }\n}"
+          },
+          "url": { "raw": "http://localhost:9090/cart/add", "protocol": "http", "host": ["localhost"], "port": "9090", "path": ["cart", "add"] }
+        }
+      },
+      {
+        "name": "View cart",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:9090/cart/view?userId=user1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9090",
+            "path": ["cart", "view"],
+            "query": [{ "key": "userId", "value": "user1" }]
+          }
+        }
+      },
+      {
+        "name": "Checkout (no discount)",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"userId\": \"user1\"\n}"
+          },
+          "url": { "raw": "http://localhost:9090/checkout", "protocol": "http", "host": ["localhost"], "port": "9090", "path": ["checkout"] }
+        }
+      },
+      {
+        "name": "Generate discount code",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"orderNumber\": 3\n}"
+          },
+          "url": {
+            "raw": "http://localhost:9090/admin/generate-discount",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9090",
+            "path": ["admin", "generate-discount"]
+          }
+        }
+      },
+      {
+        "name": "Checkout with discount code",
+        "request": {
+          "method": "POST",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"userId\": \"user1\",\n  \"discountCode\": \"DISCOUNT-3\" \n}"
+          },
+          "url": { "raw": "http://localhost:9090/checkout", "protocol": "http", "host": ["localhost"], "port": "9090", "path": ["checkout"] }
+        }
+      },
+      {
+        "name": "Admin stats",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:9090/admin/stats",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "9090",
+            "path": ["admin", "stats"]
+          }
+        }
+      }
+    ]
+  }
+  
