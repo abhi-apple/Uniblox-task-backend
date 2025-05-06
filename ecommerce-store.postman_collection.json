@@ -37,8 +37,7 @@
             "path": ["cart", "get"]
           }
         }
-      }
-      
+      },
       {
         "name": "Checkout (no discount)",
         "request": {
@@ -61,11 +60,11 @@
             "raw": "{\n  \"orderNumber\": 3\n}"
           },
           "url": {
-            "raw": "http://localhost:9090/admin/generate-discount",
+            "raw": "http://localhost:9090/admin/discount",
             "protocol": "http",
             "host": ["localhost"],
             "port": "9090",
-            "path": ["admin", "generate-discount"]
+            "path": ["admin", "discount"]
           }
         }
       },
