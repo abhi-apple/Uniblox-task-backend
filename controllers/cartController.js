@@ -1,6 +1,6 @@
 const { cart } = require("../data/store");
 
-exports.addToCard = async (req, res) => {
+exports.addToCart = async (req, res) => {
   const { userId, item } = req.body;
   if (!userId || !item) {
     return res.status(400).json({ message: "Bad request" });
@@ -19,9 +19,7 @@ exports.addToCard = async (req, res) => {
   }
 
   cart.set(userId, userCart);
-  return res
-    .status(200)
-    .json({ message: "Item added to cart", cart: userCart });
+  return res.status(200).json({ message: "Item added to cart", cart: userCart });
 };
 
 exports.getCart = async (req, res) => {
@@ -30,7 +28,5 @@ exports.getCart = async (req, res) => {
     return res.status(400).json({ message: "Bad request" });
   }
   const userCart = cart.get(userId) || [];
-  return res
-    .status(200)
-    .json({ message: "Item added to cart", cart: userCart });
+  return res.status(200).json({ message: "Cart retrieved successfully", cart: userCart });
 };

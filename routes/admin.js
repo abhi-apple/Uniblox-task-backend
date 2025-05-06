@@ -1,9 +1,9 @@
-const express=require('express')
-const router=express.Router()
+const express = require("express");
+const router = express.Router();
+const { getStats, generateDiscountCode } = require("../controllers/adminController");
+const adminAuth = require("../middlewares/adminAuth");
 
-const {getStats,generateDiscountCode} = require('../controllers/adminController')
+router.get("/stats", adminAuth, getStats);
+router.post("/discount", adminAuth, generateDiscountCode);
 
-router.get('/stats',getStats)
-router.post('/discount',generateDiscountCode)
-
-module.exports=router
+module.exports = router;

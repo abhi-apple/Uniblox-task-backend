@@ -21,18 +21,24 @@
       {
         "name": "View cart",
         "request": {
-          "method": "GET",
-          "header": [],
+          "method": "POST",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"userId\": \"user1\"\n}"
+          },
           "url": {
-            "raw": "http://localhost:9090/cart/view?userId=user1",
+            "raw": "http://localhost:9090/cart/get",
             "protocol": "http",
             "host": ["localhost"],
             "port": "9090",
-            "path": ["cart", "view"],
-            "query": [{ "key": "userId", "value": "user1" }]
+            "path": ["cart", "get"]
           }
         }
-      },
+      }
+      
       {
         "name": "Checkout (no discount)",
         "request": {
